@@ -1,23 +1,28 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
 int* findErrorNums(int* nums, int numsSize, int* returnSize) {
-    *returnSize = 2;
-    int *ans = (int*)malloc(2 * sizeof(int));
-
-    // Find duplicate
-    for (int i = 1; i <= numsSize; i++) {
-        int count = 0;
-        for (int j = 0; j < numsSize; j++) {
-            if (nums[j] == i)
-                count++;
+    *returnSize=2;
+    int *ans=(int *)malloc((*returnSize)*sizeof(int));
+    int count,k=1;
+    while(k<=numsSize){
+        count=0;
+    for (int i=0;i<numsSize;i++){
+        if (k==nums[i]){
+            count++;
         }
-
-        if (count == 2)
-            ans[0] = i;
-        else if (count == 0)
-            ans[1] = i;
+            
+        }
+        if (count==2)
+            ans[0]=k;
+        else if (count==0)
+            ans[1]=k;
+    k++;
     }
-
     return ans;
 }
+
+
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
