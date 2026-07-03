@@ -2,23 +2,20 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* findDisappearedNumbers(int* nums, int numsSize, int* returnSize) {
-     long  long int k=0;
-    
-    int *ans=(int *)malloc(numsSize*sizeof(int));
-    int temp;
-    for (int i=1;i<=numsSize;i++){
-        temp=0;
+ int k=0;
+
+    for (int i=0;i<numsSize;i++){
+        int index=abs(nums[i])-1;
+        if (nums[index]>0){
+            nums[index]=-nums[index];
+        }
+    } int *ans=(int *)malloc(numsSize*sizeof(int));
         for (int j=0;j<numsSize;j++){
-            if (i==nums[j]){
-                temp=1;
-                break;
+            if (nums[j]>0){
+                ans[k++]=j+1;
             }
         }
-        if (temp==0){
-       ans[k++]=i;
-      
-            }
-    }
+    
      *returnSize=k;
     return ans;
 }
