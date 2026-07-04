@@ -9,11 +9,17 @@ for (int i = 0; s[i] != '\0'; i++) {
     }
 }
 temp[j] = '\0';
- for (int i=0; i<j/2; i++) {
-       char ch = temp[i];
-       temp[i] = temp[j-1-i];
-       temp[j-1-i] = ch;
-   }
+int left = 0;
+int right = j - 1;
+
+while (left < right) {
+    char ch = temp[left];
+    temp[left] = temp[right];
+    temp[right] = ch;
+
+    left++;
+    right--;
+}
 for (int i = 0; s[i] != '\0'; i++) {
     if (s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||
         s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U') {
