@@ -22,7 +22,7 @@ int removeCoveredIntervals(int** intervals, int intervalsSize, int* intervalsCol
             }
     }
     j++;
-   }
+   } 
 return temp;
 
 }
