@@ -11,10 +11,14 @@ int removeCoveredIntervals(int** intervals, int intervalsSize, int* intervalsCol
      if (i == j)
     continue;
 
-if (intervals[i][0] <= p &&
-    intervals[i][1] >= q) {
+if (p >= intervals[i][0] &&
+    q <= intervals[i][1]) {
+        if (intervals[i][0] == intervals[j][0] &&
+                    intervals[i][1] == intervals[j][1])
+                    continue;
+
     temp--;
-    break;
+   break;
 }
     }
     j++;
