@@ -5,17 +5,16 @@ int compare(const void *a, const void *b)
 int minPairSum(int* nums, int numsSize){
     qsort(nums, numsSize,sizeof(int),compare);
     int max = 0;
+    int left =0,right=numsSize-1;
     // After sorting, check pairs (nums[i], nums[n-1-i])
-    for (int i=0; i < numsSize/2; i++) {
-        int currentSum = nums[i] + nums[numsSize - 1 - i];
-        if (currentSum > max) {
-            max = currentSum;
-        }
+   while(left<right){
+    int sum=nums[left]+nums[right];
+    if(sum>max){
+        max=sum;
     }
-    // ✅ Correct approach: Sort array and pair smallest with largest elements
-    // Time Complexity: O(n log n) due to sorting
-    // Space Complexity: O(1) (ignoring stack space for qsort)
-    // This is optimal as any better solution would require less than O(n log n) sorting
+    left++;
+    right--;
+   }
     return max;
 }
 
