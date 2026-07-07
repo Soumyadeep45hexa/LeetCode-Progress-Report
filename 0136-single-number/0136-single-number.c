@@ -14,22 +14,11 @@ int singleNumber(int* nums, int L) {
     // Edge case: only one element, that element is the answer.
     return nums[0]; // <-- bug: should be nums[0]
   }
-  int count;
-  for (int i=0;i<L;i++){
-    count=0;
-    for (int j=0;j<L;j++){
-        if (i==j){
-            continue;
-        }
-        if (nums[i]==nums[j]){
-            count++;
-        }
-    }
-    if (count==0){
-        return nums[i];
-    }
-  }
-  return 0;
+  int result = 0; 
+  for (int i = 0; i < L; ++i) {
+  result ^= nums[i];
+}
+return result;
 }
 
 // Synced seamlessly with LeetHub Pro
