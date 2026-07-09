@@ -5,10 +5,7 @@ bool checkPerfectNumber(int num) {
             sum+=i;
         }
     }
-    if (sum==num){
-        return true;
-    }
-    return false;
+   return sum==num;
 }
 
 // Synced seamlessly with LeetHub Pro
