@@ -10,10 +10,10 @@ for (int i = 0; i < matrixSize; i++) {
     int left = 0;
     int right = matrixSize - 1;
 
-    while (left < right) {
-        int temp = matrix[i][left];
-        matrix[i][left] = matrix[i][right];
-        matrix[i][right] = temp;
+    while(left<right){
+        int temp=matrix[i][right];
+        matrix[i][right]=matrix[i][left];
+        matrix[i][left]=temp;
         left++;
         right--;
     }
