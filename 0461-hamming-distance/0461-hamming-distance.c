@@ -1,10 +1,11 @@
 int hammingDistance(int x, int y) {
     int  bin=x^y;
     int count=0;
-     for (int i = 31; i >= 0; i--) {
-        if ((bin >> i) & 1)
-            count++;
-     }
+    while (bin) {
+    if (bin & 1)
+       count++;
+    bin = bin >> 1;  
+}
     return count;
 }
 
