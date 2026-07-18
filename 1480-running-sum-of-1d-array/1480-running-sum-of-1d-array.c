@@ -2,12 +2,15 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* runningSum(int* nums, int numsSize, int* returnSize) {
-    int *ans=(int *)malloc(numsSize*sizeof(int));
-    ans[0]=nums[0];
-    for (int i=1;i<numsSize;i++){
-        ans[i]=ans[i-1]+nums[i];
+     *returnSize=numsSize;
+    int *ans=(int *)malloc((*returnSize)*sizeof(int));
+    
+    int sum=0;
+    for (int i=0;i<numsSize;i++){
+     sum=sum+nums[i];
+        ans[i]=sum;
     }
-    *returnSize=numsSize;
+   
     return ans;
     }
 
