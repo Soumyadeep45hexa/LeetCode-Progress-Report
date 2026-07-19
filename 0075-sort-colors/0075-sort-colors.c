@@ -12,18 +12,31 @@ void sortColors(int* nums, int numsSize) {
     //     }
     // }
     // qsort(nums,numsSize,sizeof(int),compare);
-    for (int i=0;i<numsSize;i++){
-        int min=i;
-      for (int j=i+1;j<numsSize;j++){
-        if (nums[j]<=nums[min]){
-            min=j;
+    //selction Sort
+    // for (int i=0;i<numsSize;i++){
+    //     int min=i;
+    //   for (int j=i+1;j<numsSize;j++){
+    //     if (nums[j]<=nums[min]){
+    //         min=j;
+    //     }
+    //   }
+    //     int temp=nums[min];
+    //     nums[min]=nums[i];
+    //     nums[i]=temp;
+    //   }
+      //Merge Sort 
+      for (int i=0;i<numsSize;i++){
+        int j=i;
+        while(j>0 && nums[j]<=nums[j-1]){
+            int temp=nums[j-1];
+             nums[j-1]=nums[j];
+             nums[j]=temp;
+             j--;
+      }
+
         }
       }
-        int temp=nums[min];
-        nums[min]=nums[i];
-        nums[i]=temp;
-      }
-}
+
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
