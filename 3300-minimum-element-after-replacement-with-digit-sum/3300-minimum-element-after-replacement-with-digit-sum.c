@@ -8,12 +8,12 @@ int minElement(int* nums, int numsSize) {
             nums[i]/=10;
         }
         nums[i]=sum;
+    }
+    for (int i=0;i<numsSize;i++){
         if (nums[i]<min){
             min=nums[i];
         }
-
     }
-    
     return min;
 }
 
