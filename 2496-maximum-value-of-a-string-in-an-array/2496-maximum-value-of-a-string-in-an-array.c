@@ -20,11 +20,7 @@ int maximumValue(char** strs, int strsSize) {
     return max;
 }
 
-// STEP-BY-STEP GUIDE TO FIX:
-// 1. Remove the 'count' variable and the isdigit() logic.
-// 2. Inside the nested loop, simply check: if (strs[i][j] > max) { max = strs[i][j]; }
-// 3. Return the final max value.
-// If you get stuck, check the "Video Solutions" section in the LeetHub Solutions tab!
+
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
