@@ -24,6 +24,7 @@ int bitwiseComplement(int n) {
         sum+=ans[i]*pow(2,len);
         len--;
      }
+     free(ans);
      return sum;
 }
 
