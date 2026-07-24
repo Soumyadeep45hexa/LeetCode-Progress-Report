@@ -15,6 +15,8 @@ bool canConstruct(char* ransomNote, char* magazine) {
             return false;
         }
     }
+    free(rN);
+    free(M);
     return true;
 }
 
