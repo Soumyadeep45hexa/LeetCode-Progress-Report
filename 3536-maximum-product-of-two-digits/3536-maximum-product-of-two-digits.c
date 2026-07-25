@@ -3,7 +3,7 @@ int compare( const void *a,const void *b){
 }
 int maxProduct(int n) {
     int max=0;
-    int returnSize=1000000001;
+    int returnSize=10;
     int *ans=(int *)malloc(returnSize*sizeof(int ));
     int k=0;
     while(n){
@@ -20,6 +20,7 @@ for (int i=0;i<returnSize-1;i++){
         max=pdt;
     }
 }
+free(ans);
 return max;
 }
 
