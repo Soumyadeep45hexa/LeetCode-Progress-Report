@@ -1,20 +1,21 @@
 char* mapWordWeights(char** words, int wordsSize, int* weights, int weightsSize) {
-    int returnSize=wordsSize;
-    char *str =(char *)malloc((returnSize+1)*sizeof(char));
+    char *str=(char *)malloc((wordsSize+1)*sizeof(char ));
+  
     int k=0;
     for (int i=0;i<wordsSize;i++){
         int len=strlen(words[i]);
         int sum=0;
-        for (int j=0;j<len;j++){
-             sum+=weights[words[i][j]-'a'];
+        for(int j=0;j<len;j++){
+            sum+=weights[words[i][j]-'a'];
         }
-        int mod=sum%26;
-        str[k++]='z'- mod;
+        int value=sum%26;
+        str[k++]='z'-value;
     }
     str[k]='\0';
-    returnSize=k;
-    return str;
+    return  str;
 }
+
+
 
 // Synced seamlessly with LeetHub Pro
 // Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
