@@ -1,35 +1,32 @@
 bool isValid(char* s) {
-    int len=strlen(s);
-   if (len == 0)
-    return true;
-   char *stack =(char *)malloc(len*sizeof (char));
-   int i=1;
-   int top=-1;
-   stack[++top]=s[0];
-   if (stack[top]=='}' || stack[top]==']' || stack[top]==')'){
-    return false; 
-   }
-   while(i<len){
-    
-   if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
-        stack[++top] = s[i];
-    }else {
+char st[10001]={0};
+int len=strlen(s);
+int top=-1;
+char ch;
+for (int i=0;i<len;i++){
+    if (s[i]=='(' || s[i]=='{' || s[i]=='['){
+        st[++top]=s[i];
+    }else if(s[i]==')' || s[i]=='}' || s[i]==']'){
         if (top==-1){
             return false;
         }
-        if ((stack[top] == '(' && s[i] == ')') ||
-            (stack[top] == '[' && s[i] == ']') ||
-            (stack[top] == '{' && s[i] == '}')) {
-            top--;
-        }else{
-            return  false;
+        if ( (s[i]==')' && st[top]=='(') || 
+            (s[i]=='}' && st[top]=='{') || 
+            (s[i]==']' && st[top]=='[')){
+                top--;
+            }
+        else{
+            return false;
         }
-        
     }
-
-    i++;
+    
 }
-   return top==-1;
+if (top==-1){
+        return true;
+    }else {
+        return false;
+    }
+  
 }
 
 // Synced seamlessly with LeetHub Pro
